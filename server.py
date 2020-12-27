@@ -1,4 +1,4 @@
-import pyodbc as pyodbc
+#import pyodbc as pyodbc
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 
@@ -19,14 +19,14 @@ def internal_server_error(e):
 
 @app.route('/<num>')
 def hello(num):
-    conn = pyodbc.connect(
-        r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=db1\serv.accdb;')
-    cursor = conn.cursor()
-    cursor.execute('select * from table ВыборПоверитель')
-
-    for row in cursor.fetchall():
-        print(row)
-    return render_template('user.html', name=row)
+    # conn = pyodbc.connect(
+    #     r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=db1\serv.accdb;')
+    # cursor = conn.cursor()
+    # cursor.execute('select * from table ВыборПоверитель')
+    #
+    # for row in cursor.fetchall():
+    #     print(row)
+     return render_template('user.html', name=num)
 
 @app.route('/')
 def froot():
