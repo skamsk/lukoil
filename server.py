@@ -1,4 +1,4 @@
-import pyodbc
+import pyodbc as pyodbc
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 
@@ -6,13 +6,6 @@ from flask_bootstrap import Bootstrap
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 
-conn = pyodbc.connect(
-    r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=path where you stored the Access file\file name.accdb;')
-cursor = conn.cursor()
-cursor.execute('select * from table name')
-
-for row in cursor.fetchall():
-    print(row)
 
 
 @app.errorhandler(404)
